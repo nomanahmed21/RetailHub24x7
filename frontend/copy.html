@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Management</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/images/logo.png" type="image/png">
+</head>
+
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <header>
+      <div id="header-content">
+        <h1>Restaurant Management System</h1>
+        <div id="hamburger-container">
+          <!-- Hamburger Icon -->
+          <div id="hamburger" onclick="toggleNavOptions()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <!-- Navigation Menu -->
+      <div id="nav-options" class="hidden">
+        <!-- Close Button -->
+        <button id="close-nav" onclick="toggleNavOptions()">Close</button>
+        <button id="menu-button" onclick="showSection('menuSection')">Menu</button>
+        <button id="cart-button" onclick="showSection('cartSection')">Cart</button>
+        <button id="manage-menu-button" onclick="showSection('manageMenuSection')">Manage Menu</button>
+        <button id="sales-button" onclick="showSection('salesSection')">Sales</button>
+      </div>
+    </header>
+ 
+    <!-- Default Section: Search Bar and Cart -->
+    <section id="defaultSection" class="section">
+      <div id="searchBarSection">
+        <h2>Search Dishes</h2>
+        <div id="searchInputContainer">
+          <input type="text" id="searchInput" placeholder="Search dishes..." oninput="commonSearch(event)" />
+          <ul id="suggestions"></ul>
+        </div>
+      </div>
+    </section>
+    <button class="toggle-cart" id="toggleCartButton" onclick="toggleCart()">Cart</button>
+    <div id="cartSection">
+        <button class="close-btn" onclick="toggleCart()">&times;</button>
+        <h2>Cart</h2>
+        <div id="cart">
+            <!-- Cart items will appear here -->
+        </div>
+        <p><strong>Total: </strong><span id="totalAmount">0</span> ₹</p>
+        <button onclick="printBill()">Print Bill</button>
+        <button onclick="clearCart()">Empty Cart</button>
+    </div>
+    
+
+    <!-- Menu Section -->
+    <section id="menuSection" class="section hidden">
+      <h2>Menu</h2>
+      <div id="dishList"></div> <!-- Container to display the menu -->
+    </section>
+
+    <!-- Manage Menu Section -->
+    <section id="manageMenuSection" class="section hidden">
+      <h2>Manage Menu</h2>
+      <form id="dishForm" onsubmit="return addDish(event)">
+        <input type="number" id="dishNumber" placeholder="Dish Number" required>
+        <input type="text" id="dishName" placeholder="Dish Name" required>
+        <input type="number" id="dishPrice" placeholder="Dish Price" required>
+        <button type="submit">Add Dish</button>
+      </form>
+    </section>
+
+ <!-- Sales Section -->
+ <section id="salesSection" class="section hidden">
+  <h2>Sales Tracking</h2>
+
+  <!-- Sales Summary -->
+  <div class="sales-summary">
+    <p><strong>Total Sales:</strong> ₹<span id="totalSales">0.00</span></p>
+  </div>
+
+  <!-- Daily Sales Table -->
+  <h3>Daily Sales</h3>
+  <table id="dailySalesTable" border="1">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Total Sales</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Daily sales will be dynamically added here -->
+    </tbody>
+  </table>
+  <button onclick="openModal('daily')">Clear Daily Sales</button>
+
+  <!-- Monthly Sales Section -->
+  <h3>Monthly Sales</h3>
+  <div id="monthlySalesSection">
+    <!-- Monthly sales tables will be dynamically added here -->
+  </div>
+  <button onclick="openModal('monthly')">Clear Monthly Sales</button>
+
+  <!-- Password Modal -->
+  <div id="passwordModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Enter Password to Clear Sales</h3>
+      <input type="password" id="salesPassword" placeholder="Password">
+      <button onclick="validatePassword()">Submit</button>
+      <button onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Bill Template for Printing -->
+  <div id="billTemplate" style="display: none;">
+    <h2>Restaurant Bill</h2>
+    <div id="billContent"></div>
+    <p><strong>Total: </strong><span id="totalAmount">0</span> ₹</p>
+  </div>
+
+  <!-- Include JavaScript -->
+  <script src="script.js" defer></script>
+  <script>function animateCart() {
+    const cart = document.getElementById('cart');
+    cart.classList.add('animated');
+    setTimeout(() => cart.classList.remove('animated'), 800);
+  }
+  animateCart()
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,535 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+header {
+  background-color: #007bff;
+  color: #fff;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header nav {
+  margin-top: 10px;
+}
+
+header nav button {
+  background: #0056b3;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+header nav button:hover {
+  background: #003f7f;
+}
+
+/* Sections */
+.section {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.section.hidden {
+  display: none;
+}
+
+/* Centered Content */
+.section h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Search Bar */
+#searchInput {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 20px; /* Space between input and results */
+  transition: border-color 0.3s ease;
+}
+
+#searchInput:focus {
+  border-color: #007bff; /* Highlight border on focus */
+}
+
+/* Suggestions Box */
+#suggestions {
+  background: #fff;
+  border: 1px solid #ddd;
+  margin-top: 5px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 10;
+  display: none; /* Initially hidden */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for a better look */
+  max-height: 200px;
+  overflow-y: auto; /* Scroll if too many results */
+  font-size: 1rem;
+  width: 80%; /* Matches the width of the search bar */
+  left: 0; /* Align suggestions to the left of the search input */
+}
+
+/* Make suggestions visible */
+#suggestions.visible {
+  display: block;
+}
+
+/* Individual suggestion item */
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for suggestion item */
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Cart Section */
+#cart {
+  margin: 10px auto;
+  min-height: 100px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#cart.animated {
+  animation: bounce 0.8s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Cart Item Styling */
+.cart-item {
+  padding: 8px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  margin: 5px 0;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+#cart p {
+  margin: 10px 0;
+}
+
+button {
+  background: #28a745;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #218838;
+}
+
+/* Menu Section */
+#dishList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.dish-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  background: #fff;
+  width: calc(33.333% - 20px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dish-card h3 {
+  margin: 0;
+}
+
+/* Manage Menu */
+#dishForm {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+#dishForm input,
+#dishForm button {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#currentMenu {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+/* Sales Section */
+#salesSection table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#salesSection th,
+#salesSection td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+#salesSection th {
+  background: #007bff;
+  color: white;
+}
+
+#salesSection button {
+  background: #dc3545;
+}
+
+#salesSection button:hover {
+  background: #c82333;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-content input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dish-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .dish-card {
+    width: 100%;
+  }
+}
+
+/* Hamburger Icon */
+#hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+#hamburger span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+#hamburger.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+#hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Navigation Options */
+#nav-options {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Start hidden off-screen */
+  width: 250px;
+  height: 100%;
+  background-color: #007bff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  transition: all 0.5s ease-in-out;
+  z-index: 1000;
+}
+
+#nav-options.visible {
+  left: 0; /* Slide in from the left */
+}
+
+#nav-options button {
+  background: #fff;
+  color: #007bff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#nav-options button:hover {
+  background: #e0e0e0;
+}
+
+/* Search Bar and Cart Section */
+#defaultSection {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+#searchBarSection {
+  flex: 1;
+  margin-right: 20px;
+}
+
+#cartSection {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Close Button for Navigation */
+#close-nav {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#close-nav:hover {
+  background: #c0392b;
+}
+
+/* Navigation Menu Adjustments */
+#nav-options {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Start hidden off-screen */
+  width: 250px;
+  height: 100%;
+  background-color: #007bff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  transition: transform 0.5s ease-in-out; /* Sliding animation */
+  z-index: 1000;
+  transform: translateX(-100%); /* Initially hidden off-screen */
+}
+
+#nav-options.visible {
+  transform: translateX(0); /* Slide in from the left */
+}
+
+/* Hamburger Icon */
+#hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+#hamburger span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger Animation */
+#hamburger.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+#hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+/* Ensure the parent container of the search input has relative positioning */
+#searchInputContainer {
+  position: relative;
+  width: 80%;  /* Adjust this to match the search bar's width */
+}
+
+/* Search Bar */
+#searchInput {
+  width: 100%;  /* Ensure search input takes up the full width of the container */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+#searchInput:focus {
+  border-color: #007bff; /* Highlight border on focus */
+}
+
+/* Suggestions Box */
+#suggestions {
+  background: #fff;
+  border: 1px solid #ddd;
+  margin-top: 5px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 10;
+  display: none; /* Initially hidden */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for a better look */
+  max-height: 200px;
+  overflow-y: auto; /* Scroll if too many results */
+  font-size: 1rem;
+  width: 100%; /* Ensures it matches the width of the search input */
+  top: 100%; /* Places it directly below the input field */
+  left: 0; /* Aligns it with the left edge of the search input */
+}
+
+/* Make suggestions visible */
+#suggestions.visible {
+  display: block;
+}
+
+/* Individual suggestion item */
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for suggestion item */
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+.suggestion-item.highlight {
+  background-color: #ddd;  /* Highlight color */
+}
+@media print {
+  body {
+    font-family: monospace;
+    font-size: 12px;
+  }
+  
+  .no-print {
+    display: none;
+  }
+  
+  .print-area {
+    margin: 0;
+    padding: 0;
+    width: 80mm; /* Adjust to receipt paper width */
+  }
+}

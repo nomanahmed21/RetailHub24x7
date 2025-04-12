@@ -1,0 +1,863 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+header {
+  background-color: #007bff;
+  color: #fff;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header nav {
+  margin-top: 10px;
+}
+
+header nav button {
+  background: #0056b3;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+header nav button:hover {
+  background: #003f7f;
+}
+
+/* Sections */
+.section {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.section.hidden {
+  display: none;
+}
+.hidden{
+  display: none;
+}
+
+/* Centered Content */
+.section h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Search Bar */
+#searchInput {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 20px; /* Space between input and results */
+  transition: border-color 0.3s ease;
+}
+
+#searchBarSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#searchInput:focus {
+  border-color: #007bff; /* Highlight border on focus */
+}
+
+/* Suggestions Box */
+#suggestions {
+  background: #fff;
+  border: 1px solid #ddd;
+  margin-top: 5px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 10;
+  display: none; /* Initially hidden */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for a better look */
+  max-height: 200px;
+  overflow-y: auto; /* Scroll if too many results */
+  font-size: 1rem;
+  width: 80%; /* Matches the width of the search bar */
+  left: 0; /* Align suggestions to the left of the search input */
+}
+
+/* Make suggestions visible */
+#suggestions.visible {
+  display: block;
+}
+
+/* Individual suggestion item */
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for suggestion item */
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+} */
+/* cart section */
+
+
+#cartSection {
+  width: 400px;
+  /* Increase the width to accommodate content */
+  height: 98%;
+  /* Full height to avoid scrolling */
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px 0 0 8px;
+  position: fixed;
+  right: -440px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Align items to the top */
+  transition: right 0.3s ease-in-out;
+}
+
+#cartSection.active {
+  right: 0;
+}
+
+.toggle-cart {
+  position: fixed;
+  right: 3vw;
+  top: 4vh;
+  width: 77.5px;
+  /* Adjust the size as needed */
+  height: 77.5px;
+  /* Ensure width and height are equal */
+  background: white;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  /* Makes the button circular */
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.3s;
+  font-size: 16px;
+  /* Adjust font size if needed */
+  display: flex;
+  /* Center the content inside */
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-cart:hover {
+  background: #cce4ff;
+}
+
+.toggle-cart.hidden {
+  display: none;
+}
+
+.close-btn {
+  align-self: flex-end;
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background 0.3s;
+}
+
+#increase-btn {
+  background-color: transparent;
+  
+} 
+#increase-btn svg {
+  background-color: transparent;
+ width: 30px;
+ height: 30px;
+} 
+#increase-btn svg:hover {
+  background-color: transparent;
+ width: 33px;
+ height: 33px;
+} 
+#decrease-btn {
+  background-color: transparent;
+  
+} 
+#decrease-btn svg {
+  background-color:transparent;
+  width: 30px;
+  height: 30px;
+} 
+#decrease-btn svg:hover {
+  background-color: transparent;
+  width: 33px;
+  height: 33px;
+  } 
+#remove-btn {
+  background-color: transparent;
+}
+#remove-btn:hover {
+  background-color: #FF6F61;
+  padding: 5px,0px;
+  border-radius: 10%;
+  transition: 0.7s;
+}
+/* #remove-btn svg:hover {
+  background-color: #FF6F61;
+} */
+/* #span-qty {
+  width: 1vh;
+} */
+.close-btn:hover {
+  background: #a71d2a;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#cart {
+  flex: 1;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fafafa;
+  overflow-y: auto;
+}
+
+#cart p {
+  margin: 0;
+  padding: 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#cart p:last-child {
+  border-bottom: none;
+}
+
+p strong {
+  color: #555;
+}
+
+#totalAmount {
+  font-size: 18px;
+  color: #28a745;
+}
+
+#print-btn {
+  display: block;
+  width: calc(100% - 20px);
+  margin: 10px auto;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  background: #007bff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#print-btn:hover {
+  background: #0056b3;
+}
+
+#empty-btn {
+  display: block;
+  width: calc(100% - 20px);
+  margin: 10px auto;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  background: #dc3545;
+}
+
+#empty-btn:hover {
+  background: #a71d2a;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item h3 {
+  margin: 0;
+  font-size: 16px;
+  flex: 2;
+}
+
+.cart-item p {
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+/* Menu Section*/
+#menuSection {
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+/* Title Style */
+#menuSection h2 {
+  font-size: 2rem;
+  color: #444;
+  text-align: center;
+  margin-bottom: 20px;
+}
+/* Dish List Style */
+#dishList {
+  gap: 20px; /* Space between dishes */
+  padding: 20px;
+  justify-items: center;
+}
+.category-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+  grid-template-rows: auto; /* Adjust height automatically */
+  grid-template-areas: 
+    "heading heading heading"
+    "item item item"
+    "item item item"; /* Ensures a proper flow */
+  gap: 20px;
+  padding: 20px;
+}
+
+.category-section h2 {
+  grid-area: heading; /* Heading takes full width */
+  text-align: left;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+  background: #f4f4f4;
+  border-radius: 5px;
+}
+/* Styling for each dish */
+.dish {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  padding: 15px;
+  width: 260px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dish:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Dish Image */
+.dish img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover; /* Ensures the image fills the space */
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.dish img:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Dish Name */
+.dish h3 {
+  font-size: 18px;
+  margin: 12px 0;
+  color: #333;
+}
+
+/* Dish Price */
+.dish p {
+  font-size: 16px;
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Quantity Input */
+.menu-input {
+  width: 60px;
+  padding: 5px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+/* Button Styles */
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Button Hover */
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Add to Cart Button */
+.m-addtocart {
+  background-color: #28a745;
+  color: white;
+}
+
+.m-addtocart:hover {
+  background-color: #37ff00;
+  color: black;
+  border-radius: 50px;
+}
+
+/* Delete Dish Button */
+.m-deletedish {
+  background-color: #dc3545;
+  color: white;
+}
+
+.m-deletedish:hover {
+  background-color: #ff073a;
+  color: black;
+  border-radius: 50px;
+}
+
+/* Placeholder Size Adjustment */
+.menu-input::placeholder {
+  font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+  #dishList {
+    grid-template-columns: repeat(2, 1fr); /* 2 dishes per row */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #dishList {
+    grid-template-columns: repeat(1, 1fr); /* 1 dish per row on small screens */
+  }
+
+  .dish {
+    width: 90%;
+    max-width: 320px;
+  }
+}
+
+
+/* Manage Menu */
+#dishForm {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+#dishForm input,
+#dishForm button {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#currentMenu {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+/* Sales Section */
+#salesSection table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#salesSection th,
+#salesSection td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+#salesSection th {
+  background: #007bff;
+  color: white;
+}
+
+#salesSection button {
+  border: none;
+  padding: 8px 15px;
+  font-size: 1rem;
+  border-radius: 4px;
+  background: #dc3545;
+}
+
+#salesSection button:hover {
+  border: none;
+  padding: 8px 15px;
+  font-size: 1rem;
+  border-radius: 10vh;
+  background: #c82333;
+  transition: 1s ease;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-content input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dish-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .dish-card {
+    width: 100%;
+  }
+}
+
+/* Hamburger Icon */
+#hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+#hamburger span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+#hamburger.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+#hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Navigation Options */
+#nav-options {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Start hidden off-screen */
+  width: 250px;
+  height: 100%;
+  background-color: #007bff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  transition: all 0.5s ease-in-out;
+  z-index: 1000;
+}
+
+#nav-options.visible {
+  left: 0; /* Slide in from the left */
+}
+
+#nav-options button {
+  background: #fff;
+  color: #007bff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#nav-options button:hover {
+  background: #e0e0e0;
+}
+
+/* Search Bar and Cart Section */
+#defaultSection {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+#searchBarSection {
+  flex: 1;
+  margin-right: 20px;
+}
+
+/* Close Button for Navigation */
+#close-nav {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#close-nav:hover {
+  background: #c0392b;
+}
+
+/* Navigation Menu Adjustments */
+#nav-options {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Start hidden off-screen */
+  width: 250px;
+  height: 100%;
+  background-color: #007bff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  transition: transform 0.5s ease-in-out; /* Sliding animation */
+  z-index: 1000;
+  transform: translateX(-100%); /* Initially hidden off-screen */
+}
+
+#nav-options.visible {
+  transform: translateX(0); /* Slide in from the left */
+}
+
+/* Hamburger Icon */
+#hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+#hamburger span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger Animation */
+#hamburger.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+#hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+/* Ensure the parent container of the search input has relative positioning */
+#searchInputContainer {
+  position: relative;
+  width: 80%;  /* Adjust this to match the search bar's width */
+}
+
+/* Search Bar */
+#searchInput {
+  width: 100%;  /* Ensure search input takes up the full width of the container */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+#searchInput:focus {
+  border-color: #007bff; /* Highlight border on focus */
+}
+
+/* Suggestions Box */
+#suggestions {
+  background: #fff;
+  border: 1px solid #ddd;
+  margin-top: 5px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 10;
+  display: none; /* Initially hidden */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for a better look */
+  max-height: 200px;
+  overflow-y: auto; /* Scroll if too many results */
+  font-size: 1rem;
+  width: 100%; /* Ensures it matches the width of the search input */
+  top: 100%; /* Places it directly below the input field */
+  left: 0; /* Aligns it with the left edge of the search input */
+}
+
+/* Make suggestions visible */
+#suggestions.visible {
+  display: block;
+}
+
+/* Individual suggestion item */
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for suggestion item */
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+.suggestion-item.highlight {
+  background-color: #ddd;  /* Highlight color */
+}
+
+/* Remove arrows from number input in Electron */
+input[type="number"] {
+  -webkit-appearance: none;  /* Safari and Chrome */
+  -moz-appearance: none;     /* Firefox */
+  appearance: none;          /* General appearance reset */
+  margin: 0;                 /* Remove default margin */
+  padding: 0;                /* Remove default padding */
+  width: auto;               /* Adjust width to avoid spinner */
+}
+
+/* Webkit browsers (Chrome, Safari) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;  /* Remove spin button in Webkit browsers */
+  margin: 0;
+}
+
+/* Firefox
+input[type="number"] {
+  -moz-appearance: none;  /* Ensure no spinner in Firefox */
+/* } */ 
